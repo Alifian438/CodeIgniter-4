@@ -1,0 +1,33 @@
+belajar codeigniter 4 #1
+- folder app adalah folder inti dari codeigniter kita dan aplikasi kita akan tersimpan
+  didalam folder app, ada folder controllers digunakan untuk menyimpan sebuah controller, folder models digunakan untuk mengelola
+  tabel database, dan untuk tampilan kita simpan di folder view.
+- folder public folder untuk menyimpan asset kita, jadi ini adalah salah satu folder yang 
+  yang kita modifikasi.Secara default folder public ini sudah ada beberapa file, ada file .htaccess
+  salah satu fungsinya yaitu untuk membuat pretty url (jadi nanti url kita akan bersih tidak ada nama filenya),
+  terus ada file index.php yaitu seperti file bootstrapnya CI yang membawa file" lainnya jadi aplikasi CI kita
+  berawal dari sini, jadi pastikan file ini tidak dimodifikasi apa lagi dihapus.dan ada robots.txt itu biasanya digunakan
+  untuk search enggine.
+- folder test untuk aplikasi kita menjalankan testin
+- folder vendor folder untuk menyimpan dependency aplkasi kita dan depency itu dikelola oleh file composer.json
+- folder writable adalah folder dimana CI akan mengisikan sesuatu secara otomatis misalkan untuk cache, debugbar, dan lain"
+  jadi kalau ada sesuatu di CI yang kita setting maka akan otomatis di simpan oleh CI nya di folder ini.
+- gitignore digunakan untuk ngepush ke sebuah repositori
+- phpunit digunakan untuk testing
+- env jika kita ingin menggunakan nya kita harus rename filenya menjadi '.env' dan env ini adalah sebuah template untuk konfigurasi
+  enviroment.Yang dimodifikasi harus dihapus tanda pagarnya dan biasanya yang dimodifikasi CI_ENVIROMENT = production menjadi development
+  agar saat kita ngoding kalau ada error akan muncul errornya, dan yang biasa diganti lagi adalah app.baseURL = "ini diganti dengan alamat website kita"
+
+belajar codeigniter 4 | belajar Routes dan controller #2
+kita akan belajar di folder app terus file Routes.php dan di folder controller disana nanti juga ada penjelasannya.Jadi langsung kesana:D
+
+Routes adalah kumpulan definisi routing, routing adalah proses menentukan arah atau rute yang harus dilalui
+controller adalah class atau script yang bertanggung jawab merespon sebuah request.
+Jadi kesimpulannya Routes akan menentukan controller mana yang akan dijalankan setelah itu didalam controller yang akan menampilkan view atau mengambil data dari model.Jadi routes itu komponen pertama yang diakses.
+
+- jenis" place hoider atau untuk menyimpan nilai : - (:any) = bisa memasukan nilai apapun
+                                                   - (:num) = hanya bisa memasukan nilai angka
+                                                   - (:segment) = bisa memasukan nilai apapun kecuali tanda /
+                                                   - (:alpha) = hanya bisa memasukan huruf
+                                                   - (:alphanum) = hanya bisa memasukan huruf dan angka       karakter gak masuk
+

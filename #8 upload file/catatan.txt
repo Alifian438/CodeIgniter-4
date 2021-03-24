@@ -1,0 +1,62 @@
+belajar codeigniter 4 #1
+- folder app adalah folder inti dari codeigniter kita dan aplikasi kita akan tersimpan
+  didalam folder app, ada folder controllers digunakan untuk menyimpan sebuah controller, folder models digunakan untuk mengelola
+  tabel database, dan untuk tampilan kita simpan di folder view.
+- folder public folder untuk menyimpan asset kita, jadi ini adalah salah satu folder yang 
+  yang kita modifikasi.Secara default folder public ini sudah ada beberapa file, ada file .htaccess
+  salah satu fungsinya yaitu untuk membuat pretty url (jadi nanti url kita akan bersih tidak ada nama filenya),
+  terus ada file index.php yaitu seperti file bootstrapnya CI yang membawa file" lainnya jadi aplikasi CI kita
+  berawal dari sini, jadi pastikan file ini tidak dimodifikasi apa lagi dihapus.dan ada robots.txt itu biasanya digunakan
+  untuk search enggine.
+- folder test untuk aplikasi kita menjalankan testin
+- folder vendor folder untuk menyimpan dependency aplkasi kita dan depency itu dikelola oleh file composer.json
+- folder writable adalah folder dimana CI akan mengisikan sesuatu secara otomatis misalkan untuk cache, debugbar, dan lain"
+  jadi kalau ada sesuatu di CI yang kita setting maka akan otomatis di simpan oleh CI nya di folder ini.
+- gitignore digunakan untuk ngepush ke sebuah repositori
+- phpunit digunakan untuk testing
+- env jika kita ingin menggunakan nya kita harus rename filenya menjadi '.env' dan env ini adalah sebuah template untuk konfigurasi
+  enviroment.Yang dimodifikasi harus dihapus tanda pagarnya dan biasanya yang dimodifikasi CI_ENVIROMENT = production menjadi development
+  agar saat kita ngoding kalau ada error akan muncul errornya, dan yang biasa diganti lagi adalah app.baseURL = "ini diganti dengan alamat website kita"
+
+belajar codeigniter 4 | belajar Routes dan controller #2
+kita akan belajar di folder app terus file Routes.php dan di folder controller disana nanti juga ada penjelasannya.Jadi langsung kesana:D
+
+Routes adalah kumpulan definisi routing, routing adalah proses menentukan arah atau rute yang harus dilalui
+controller adalah class atau script yang bertanggung jawab merespon sebuah request.
+Jadi kesimpulannya Routes akan menentukan controller mana yang akan dijalankan setelah itu didalam controller yang akan menampilkan view atau mengambil data dari model.Jadi routes itu komponen pertama yang diakses.
+
+- jenis" place hoider atau untuk menyimpan nilai : - (:any) = bisa memasukan nilai apapun
+                                                   - (:num) = hanya bisa memasukan nilai angka
+                                                   - (:segment) = bisa memasukan nilai apapun kecuali tanda /
+                                                   - (:alpha) = hanya bisa memasukan huruf
+                                                   - (:alphanum) = hanya bisa memasukan huruf dan angka karakter gak masuk
+
+belajar codeigniter 4 | belajar View #3
+
+Kita akan belajar di folder app terus controller di file pages.php dan mengganti routes default menjadi $routes->get('/', 'Pages::index'); agar ketika dijalankan url default akan menampilkan index yang berada pada controller pages.Dan kita juga akan belajar di folder view terus folder pages.
+
+saya akan memisahkan view antara header dan footer agar terlihat rapi.
+
+belajar codeigniter 4 | belajar View layout #4
+
+jadi kali ini saya akan membuat header dan footer menjadi satu, saya akan membuat folder layout pada folder view dan didalam folder layout saya akan menambahkan file navbar.php yang berisi navbar dan file template.php yang berisi header dan footer.Dan kita juga harus merubah codingan pada about.php , home.php , dan menambahkan contact.php pada folder pages.Dan kita juga harus merubah codingan pages.php pada folder controllers.oke biar lebih jelas lagi bisa lihat komentar dari file" tersebut.
+
+belajar codeigniter 4 | bejalar model #5
+
+jadi kali ini saya akan membuat model, model itu dibuat untuk menggabungkan database kita dengan web kita.Pertama saya akan membuat folder baru bernama games didalam folder view, dan di dalam folder games itu berisi file index dari url games dan detail, detail ini adalah url yang akan muncul ketika kita mengklik tombol detail pada url games.Tidak hanya itu saya juga menambahkan folder css dan image pada folder public, dan saya juga membuat file model untuk games pada folder models, dan membuat controller baru untuk games dan menambahkan routes untuk games.lebih jelasnya bisa langsung dilihat di file" tersebut.Dan jangan lupa kita juga harus membuat database kita di phpmyadmin.dan kita juga harus mengaktifkan database pada env, dan kalau ada kesalahan pada databasenya atau database tetep tidak muncul coba ganti hostnamenya menjadi 127.0.0.1 dan nama databasenya harus sesuai dengan nama database yang kita buat di phpmyadmin, user namenya root dan kalau pakai xampp passwordnya kosong.Dan lebih lengkapnya bisa dilihat documentasinya di https://www.codeigniter.com/user_guide/models/model.html
+
+belajar codeigniter 4 | belajar insert data #6
+
+Jadi kita kali ini akan belajar membuat insert data, pertama kita akan membuat button pada file index dan membuat file create.php pada folder games yang berfungsi ketika kita menekan tombol tersebut kita diarahkan create yang digunakan untuk menginsert data games, dan didalam file create terebut kita akan membuat form untuk menginsert data.Setelah itu kita akan membuat method baru di controller games yaitu method create dan method save, method create ini berfungsi agar kita bisa mengakses create.php setelah kita menekan tombol atau button pada index.php pada folder games, dan untuk method save ini digunakan untuk mengsave data dan akan menampilkannya pada index data yang telah di insert dari create.Setelah kita juga harus menambahkan routes create agar urlnya bisa diakses.Dan kita juga harus menambahkan allowedfield pada GamesModel.php untuk memberikan ijin insert data secara manual pada database.
+
+belajar codeigniter 4 | belajar validation #7
+
+jadi kita kali ini akan belajar mengenai validation.Validation ini akan kita gunakan pada create kita karena validation ini berfungsi untuk memvalidasi data kita saat menginputkan data jadi jika tidak ada data yang ditambahkan atau tidak di isi dan di klik tambahkan data maka data kosong tidak akan ditambahkan pada database.yang pertama kita lakukan apadalah menambahkan if else pada method save pada controller games dan menambahkan parameter validation di dalam variabel data pada method create.Dan kita juga akan menambahkan session() pada basecontroller agar session bisa digunakan di semua method pada controller.Setelah itu kita juga akan menambahkan code pada create.php atau pada halaman create agar ketika yang di inputkan error maka data yang sudah kita tulis tidak akan hilang dan akan tampil errornya.lebih jelasnya lagi bisa dilihat dimasing-masing file tersebut di sana ada penjelasannya.Dan untuk mengetahui lebih banyak rules pada validation bisa lihat di doc CI4nya https://www.codeigniter.com/user_guide/libraries/validation.html?highlight=validation#available-rules
+
+belajar codeigniter 4 | bejalar edit dan delete #8
+
+Jadi kali ini akan belajar mengenai edit dan delete.kali ini saya akan menambahkan file edit.php baru pada folder games pada folder view, dan menambahakan method edit, update, delete pada controller games, dan menambahkan routes baru, dan mengganti button delete menjadi form pada detail.php.penjelasannya semua bisa dilihat langsung pada file" tersebut. 
+
+belajar codeigniter 4 | belajar upload file
+
+Jadi kali ini saya akan belajar mengenai upload file pada CI4, yang akan saya rubah disini adalah saat menginputkan gambar pada sampul pada halaman create dan edit.dan kali ini saya akan belajar di file create, controller games, dan file edit.yang pertama kita akan menambahkan code enctype='multipart/form-data' pada file create dan edit di bagian form dibawahnya h2 bagian atas, code itu sudah dijelaskan dimasing" file tersebut.Setelah itu saya juga merubah pada bagian inputan sampul pada file create dan edit, penjelasannya bisa langsung dilihat disana.Dan saya juga menambahkan javascript pada file template script itu digunakan untuk menampilkan image preview pada halaman create dan halaman edit, penjelasannya secara lengkap sudah ada disana.Setelah itu di bagian controller games saya merubah rules pada sampul pada method save, dan menambahkan code ambil gambar, penjelasan secara lengkap bisa langsung dilihat di file tersebut.dan di method edit saya juga merubah rules pada sampul, dan menambahkan code untuk mengambil file dari id sampul pada halaman edit dan menambahkan code cek gambar juga, pelnjelasan secara lengkap bisa langsung dilihat di file tersebut.untuk mengetahui rules" tentang file pada CI4 bisa langsung lihat di documentasion CI4 atau klik link berikut https://www.codeigniter.com/user_guide/libraries/validation.html?highlight=file%20upload#rules-for-file-uploads

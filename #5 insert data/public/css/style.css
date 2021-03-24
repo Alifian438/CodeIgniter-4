@@ -1,0 +1,7 @@
+.sampul {
+  width: 150px; /* untuk mengatur ukuran gambar pada class sampul */
+}
+
+.table > tbody > tr > * {
+  vertical-align: middle; /* untuk membuat isi dalam tabelnya sejajar ke tengah */
+}
